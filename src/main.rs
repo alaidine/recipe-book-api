@@ -112,8 +112,8 @@ async fn main(
     let router = Router::new()
         .route("/", get(homepage))
         .route("/recipes", get(get_recipes))
-        .route("/create", get(create_recipe))
-        .route("/delete", get(delete_recipes))
+        .route("/create", post(create_recipe))
+        .route("/delete", delete(delete_recipes))
         .with_state(state);
 
     Ok(router.into())
